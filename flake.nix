@@ -8,12 +8,15 @@
       pkgs = import nixpkgs { localSystem = { inherit system; }; };
     in
     {
-      devShells.default = pkgs.mkShell ({
+      devShells.default = pkgs.mkShell {
         buildInputs = with pkgs; [
-	  haskell.compiler.ghc96
+	        haskell.compiler.ghc98
+	        haskellPackages.hls
           zlib
+          gnuplot
+          freeglut
         ];
-      });
+      };
     }
   );
 }
